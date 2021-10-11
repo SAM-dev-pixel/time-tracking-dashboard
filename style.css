@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* primary */
+  --Blue: hsl(246, 80%, 60%);
+  --Lightred-work: hsl(15, 100%, 70%);
+  --Soft-blue-play: hsl(195, 74%, 62%);
+  --Light-red-study: hsl(348, 100%, 68%);
+  --Lime-green-exercise: hsl(145, 58%, 55%);
+  --Violet-social: hsl(264, 64%, 52%);
+  --Soft-orange-self-care: hsl(43, 84%, 65%);
+  /* neutral */
+  --Very-dark-blue: hsl(226, 43%, 10%);
+  --Dark-blue: hsl(235, 46%, 20%);
+  --Desaturated-blue: hsl(235, 45%, 61%);
+  --Pale-Blue: hsl(236, 100%, 87%);
+}
+.fuck {
+  display: none;
+}
+html {
+  font-size: 18px;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  padding: 3rem 0;
+  font-family: 'Rubik', sans-serif;
+  background: var(--Very-dark-blue);
+}
+.time-tracking-dashboard-container {
+  max-width: 1000px;
+ /* display: grid;
+  grid-template-columns: 1fr 1fr;*/
+  display: flex;
+  margin: auto;
+  gap: 1rem;
+}
+.profile-container {
+  background: var(--Dark-blue);
+}
+.profile-container,
+.profile,
+.activity-box,
+.activity-body {
+  width: 10rem;
+  border-radius: .85rem;
+}
+.profile {
+  display: grid;
+  padding: 1.75em;
+  background: var(--Blue);
+}
+.profile {
+    grid-template-areas: "img"
+                         "report"
+                         "name";
+  }
+.profile-img {
+  grid-area: img; 
+  width: 3.5rem;
+  border-radius: 50%;
+  border: .180rem solid white;
+}
+.profile p {
+  grid-area: report;
+  align-self: end;
+  color: var(--Pale-Blue);
+  font-size: .8rem;
+  padding: 2.2em 0 .4em 0;
+}
+.profile-name {
+  grid-area: name;
+  color: #ddd;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+.period {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1.2em 1.75em;
+}
+.period h2 {
+  color: var(--Desaturated-blue);
+  font-size: .85rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: .1s;
+}
+.period h2:hover {
+  color: var(--Pale-Blue);
+}
+.period h2.active {
+  color: var(--Pale-Blue);
+}
+.activities-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.activity-box.work { 
+  background: var(--Lightred-work);
+}
+.activity-box.play {
+  background: var(--Soft-blue-play);
+}
+.activity-box.study {
+  background: var(--Light-red-study);
+}
+.activity-box.exercise {
+  background: var(--Lime-green-exercise);
+}
+.activity-box.social {
+  background: var(--Violet-social);
+}
+.activity-box.self {
+  background: var(--Soft-orange-self-care);
+}
+.activity-head {
+  height: 2.1rem;
+  overflow: hidden;
+  position: relative;
+}
+.activity-icon {
+  width: 4rem;
+  display: block;
+  position: absolute;
+  top: -25%;
+  right: 1.125rem;
+  pointer-events: none;
+}
+.activity-body {
+  display: grid;
+  grid-template-areas: "title button"
+                       "hour hour"
+                       "prev prev";
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125em;
+  background: var(--Dark-blue);
+  transition: .1s;
+}
+.activity-body:hover {
+  background: hsl(235, 46%, 30%);
+}
+.activity-title {
+  grid-area: title;
+  color: white;
+  font-size: .9rem;
+  font-weight: 500;
+}
+.dots-btn {
+  grid-area: button;
+  justify-self: end;
+  margin-left: 1.125em;
+  cursor: pointer;
+}
+.hour-txt {
+  grid-area: hour;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-top: .4em;
+}
+.prev-hour-txt {
+  grid-area: prev;
+  color: var(--Pale-Blue);
+  font-size: .7rem;
+}
+@media (max-width: 768px) {
+  .profile-container {
+   height: max-content;
+  }
+  .activities-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 576px) {
+  .time-tracking-dashboard-container {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+  .activities-container {
+   grid-template-columns: 1fr;
+   
+  }
+  .profile-container,
+  .profile,
+  .activity-box,
+  .activity-body {
+    width: 18rem;
+  }
+  .profile {
+    grid-template-areas: "img report"
+                         "img name";
+  }
+  .profile p {
+    padding: 0;
+  }
+  .period {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .period h2 {
+    font-size: 1rem;
+  }
+  .activity-body {
+    grid-template-areas: "title button"
+                         "hour prev";
+  }
+  .prev-hour-txt {
+    font-size: .8rem;
+  }
+}
